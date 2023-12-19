@@ -21,10 +21,15 @@ module.exports = {
             }
         ]
     },
-    output:{
-        path:path.resolve(__dirname,'..','./build'),
-        filename: 'bundle.js'
-    },
+    output: {
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, '../build'),
+      },
+    optimization: {
+        splitChunks: {
+          chunks: 'all',
+        },
+      },
     mode:'development',
     plugins:[
         new HtmlWebpackPlugin({
